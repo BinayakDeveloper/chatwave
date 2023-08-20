@@ -26,6 +26,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", async (req, res) => {
+  res.json({
+    status: true,
+    message: "Welcome To My API",
+  });
+});
+
 app.post("/getData/:token", async (req, res) => {
   let { token } = req.params;
   let verify = await jwt.verify(token, SECRET_KEY);
