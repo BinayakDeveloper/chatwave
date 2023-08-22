@@ -18,7 +18,7 @@ async function genLink(req, res, database, jwt, sendMails) {
       expiresIn: "10m",
     });
 
-    let tempLink = `http://localhost:3000/update/${user.uid}/${tempToken}`;
+    let tempLink = `https://chatwave.vercel.app/update/${user.uid}/${tempToken}`;
 
     sendMails(
       email,
