@@ -37,7 +37,7 @@ async function genLink(req, res, database, jwt, sendMails) {
   }
 }
 
-async function changePass(req, res, database, jwt) {
+async function tokenValidate(req, res, database, jwt) {
   let { uid, token } = req.params;
 
   try {
@@ -72,4 +72,4 @@ async function updatePass(req, res, database, bcrypt) {
   }
 }
 
-module.exports = { genLink, changePass, updatePass };
+module.exports = { genLink, tokenValidate, updatePass };

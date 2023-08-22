@@ -10,7 +10,7 @@ const login = require("./Account Operations/Login.js");
 const { sendMails } = require("./Nodemailer/Mailer.js");
 const {
   genLink,
-  updatePass,
+  tokenValidate,
   changePass,
 } = require("./Account Operations/Forgot.js");
 
@@ -65,8 +65,8 @@ app.post("/genLink", async (req, res) => {
   genLink(req, res, database, jwt, sendMails);
 });
 
-app.post("/changePass/:uid/:token", async (req, res) => {
-  changePass(req, res, database, jwt);
+app.post("/tokenValidate/:uid/:token", async (req, res) => {
+  tokenValidate(req, res, database, jwt);
 });
 
 app.post("/updatePass/:email", async (req, res) => {
