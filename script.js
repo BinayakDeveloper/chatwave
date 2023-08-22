@@ -11,7 +11,7 @@ const { sendMails } = require("./Nodemailer/Mailer.js");
 const {
   genLink,
   tokenValidate,
-  changePass,
+  updatePass,
 } = require("./Account Operations/Forgot.js");
 
 dotenv.config({
