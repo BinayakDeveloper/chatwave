@@ -33,8 +33,8 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post("/getData/:token", async (req, res) => {
-  let { token } = req.params;
+app.post("/getData", async (req, res) => {
+  let { token } = req.body;
   let verify = await jwt.verify(token, SECRET_KEY);
   let user = await database.findById(verify._id);
   if (user !== null) {
