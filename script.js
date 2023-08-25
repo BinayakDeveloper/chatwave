@@ -43,7 +43,6 @@ app.post("/getData/:token", async (req, res) => {
       uid: user.uid,
       username: user.username,
       email: user.email,
-      token: user.token,
     });
   } else {
     res.json({
