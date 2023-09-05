@@ -14,6 +14,7 @@ async function register(req, res, database, bcrypt) {
       username,
       email,
       password: hashedPassword,
+      onlineStatus: false,
     });
 
     let token = await jwt.sign({ _id: userData._id }, SECRET_KEY);
@@ -43,6 +44,7 @@ async function register(req, res, database, bcrypt) {
         username,
         email,
         password: hashedPassword,
+        onlineStatus: false,
       });
 
       let token = await jwt.sign({ _id: userData._id }, SECRET_KEY);

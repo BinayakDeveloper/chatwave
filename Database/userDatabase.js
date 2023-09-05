@@ -4,13 +4,13 @@ require("dotenv").config({
   path: "./secret.env",
 });
 
-const { DB_URL, DB_NAME, USERS_COLLECTION_NAME } = process.env;
+const { DB_URL } = process.env;
 
-mongoose.connect(DB_URL, { dbName: DB_NAME }).then(() => {
-  console.log("Database Connected Succeessfully");
+mongoose.connect(DB_URL, { dbName: "reactchatapp" }).then(() => {
+  console.log("User Database Connected Succeessfully");
 });
 
-let schema = mongoose.Schema({
+let userSchema = new mongoose.Schema({
   uid: {
     type: Number,
   },
@@ -23,6 +23,9 @@ let schema = mongoose.Schema({
   password: {
     type: String,
   },
+  onlineStatus: {
+    type: Boolean,
+  },
   token: [
     {
       token: {
@@ -32,10 +35,6 @@ let schema = mongoose.Schema({
   ],
 });
 
-let registerModel = mongoose.model(
-  "registerModel",
-  schema,
-  USERS_COLLECTION_NAME
-);
+let registerModel = new mongoose.model("registerModel", userSchema, "users");
 
 module.exports = registerModel;
